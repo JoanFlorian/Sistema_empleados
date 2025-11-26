@@ -1,4 +1,12 @@
+@extends('layouts.app')
+@section('content')
+<div class="container">
 
+@if(Session::has('mensaje'))
+<div class="alert alert-success alert-dismissible" role="alert">
+    {{Session::get('mensaje')}}
+</div>
+@endif
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +15,8 @@
     <title>Document</title>
 </head>
 <body>
-    LISTA LOS DATOS DE LOS EMPLEADOS
+    <a href="{{route('empleado.create')}}" class="btn btn-success">Registrar Nuevo Empleado</a>
+
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
@@ -24,21 +33,24 @@
         @foreach ($empleados as $datos)
         <tr>
             <td>{{$datos->id}}</td>
-            <td>{{$datos->Foto}}</td>
+            <td><img src="{{asset('storage').'/'.$datos->Foto}}"></td>
             <td>{{$datos->Nombres}}</td>
             <td>{{$datos->PrimerApel}}</td>
             <td>{{$datos->SegundoApel}}</td>
             <td>{{$datos->Correo}}</td>
-            <td><a href="{{url('empleado/'.$datos->id.'/edit')}}">Editar</a> | <form action="{{url('/empleado/'.$datos->id)}}" method="POST">
+            <td><a href="{{url('empleado/'.$datos->id.'/edit')}}" class="btn btn-warning" >Editar</a> | <form action="{{url('/empleado/'.$datos->id)}}" method="POST">
             @csrf
             {{method_field('DELETE')}}
-            <input type="submit" onclick="return confirm(' ¿Deseas Eliminar?')" value="Eliminar">
+            <input type="submit" onclick="return confirm(' ¿Deseas Eliminar?')" class="btn btn-danger mt-1" value="Eliminar">
             </form>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-<a href="{{route('empleado.create')}}">Crear Empleado</a>
+{{$empleados->Links()}}
+</div>
+@endsection
+
 </body>
 </html>

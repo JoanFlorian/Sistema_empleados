@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+<div class="container">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +13,10 @@
 <form action="{{url('/empleado/'.$empleado->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     {{method_field('PATCH')}}
-    @include('empleado.form')
+    @include('empleado.form',['modo'=>'Actualizar'])
 </form>
+</div>
+@endsection
 
 </body>
 </html>
