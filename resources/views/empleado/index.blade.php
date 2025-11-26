@@ -33,17 +33,19 @@
         @foreach ($empleados as $datos)
         <tr>
             <td>{{$datos->id}}</td>
-            <td><img src="{{asset('storage').'/'.$datos->Foto}}"></td>
+            <td><img style="width:250px; height:180px;" src="{{asset('storage').'/'.$datos->Foto}}"></td>
             <td>{{$datos->Nombres}}</td>
             <td>{{$datos->PrimerApel}}</td>
             <td>{{$datos->SegundoApel}}</td>
             <td>{{$datos->Correo}}</td>
-            <td><a href="{{url('empleado/'.$datos->id.'/edit')}}" class="btn btn-warning" >Editar</a> | <form action="{{url('/empleado/'.$datos->id)}}" method="POST">
-            @csrf
-            {{method_field('DELETE')}}
-            <input type="submit" onclick="return confirm(' ¿Deseas Eliminar?')" class="btn btn-danger mt-1" value="Eliminar">
-            </form>
-            </td>
+            <td class="align-middle text-center">
+    <a href="{{ url('empleado/'.$datos->id.'/edit') }}" class="btn btn-warning btn-sm">Editar</a> |
+    <form action="{{ url('/empleado/'.$datos->id) }}" method="POST" class="d-inline m-0">
+        @csrf
+        {{ method_field('DELETE') }}
+        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Deseas Eliminar?')">Eliminar</button>
+    </form>
+</td>
         </tr>
         @endforeach
     </tbody>
