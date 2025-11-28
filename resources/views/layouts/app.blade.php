@@ -29,12 +29,21 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    
                     <ul class="navbar-nav me-auto">
+                    @auth
+                        @if(auth()->user()->role==='admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('empleado.index')}}">{{__('Empleados')}}</a>
                             
                         </li>
+                        @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('aprendiz.index')}}">{{__('Aprendices')}}</a>
+                        </li>
+                    @endauth
                     </ul>
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">

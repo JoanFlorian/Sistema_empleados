@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\AprendizController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\AdminController;
+
 
 
 
@@ -21,3 +22,5 @@ Route::get('/admin',[AdminController::class, 'index'])->middleware('admin.auth')
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/aprendiz', [App\Http\Controllers\AprendizController::class, 'index'])->name('aprendiz.index')->middleware('aprendiz.auth');
