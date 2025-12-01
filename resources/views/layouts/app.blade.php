@@ -19,6 +19,12 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            @auth
+    <div style="background:yellow;padding:5px">
+        ROLE REAL: {{ auth()->user()->role }}
+    </div>
+@endauth
+
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -43,6 +49,7 @@
                         </li>
                     @endauth
                     </ul>
+                    
                     
 
                     <!-- Right Side Of Navbar -->

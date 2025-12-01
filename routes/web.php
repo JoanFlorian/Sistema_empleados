@@ -17,8 +17,6 @@ Auth::routes(['register'=>false, 'reset'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Route::get('/admin',[AdminController::class, 'index'])->middleware('admin.auth')->name('admin.index');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
