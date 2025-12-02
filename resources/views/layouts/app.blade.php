@@ -19,11 +19,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            @auth
-    <div style="background:yellow;padding:5px">
-        ROLE REAL: {{ auth()->user()->role }}
-    </div>
-@endauth
+            
 
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -38,7 +34,7 @@
                     
                     <ul class="navbar-nav me-auto">
                     @auth
-                        @if(auth()->user()->role==='admin')
+                        @if(auth()->user()->role->name==='admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('empleado.index')}}">{{__('Empleados')}}</a>
                             

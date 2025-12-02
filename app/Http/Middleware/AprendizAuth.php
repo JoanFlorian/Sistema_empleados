@@ -16,7 +16,7 @@ class AprendizAuth
     public function handle(Request $request, Closure $next): Response
     {
         if(auth()->check()){
-            if(auth()->user()->role ==='aprendiz' || auth()->user()->role ==='admin'){
+            if(auth()->user()->role->name ==='aprendiz' || auth()->user()->role->name ==='admin'){
             return $next($request);
             }
         }
