@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Role;
+use Illuminate\Http\Request; // <-- IMPORTANTE
+
 
 
 class RegisterController extends Controller
@@ -30,7 +32,15 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected function registered(Request $request, $user)
+{
+     // Cerrar sesión inmediatamente después del registro
+    $this->guard()->logout();
+
+    // Redirigir al login con mensaje opcional
+    return redirect('/login')->with('status', 'Cuenta creada correctamente. Ahora inicia sesión.');
+}
+
 
     /**
      * Create a new controller instance.
@@ -53,6 +63,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    
     protected function validator(array $data)
     {
         return Validator::make($data, [

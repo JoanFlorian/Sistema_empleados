@@ -13,11 +13,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::resource("empleado",EmpleadoController::class)->middleware('admin.auth');
-Auth::routes(['register'=>false, 'reset'=>false]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
+Auth::routes(['reset'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

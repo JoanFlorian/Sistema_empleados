@@ -88,3 +88,110 @@
     </div>
 </div>
 @endsection
+{{-- @extends('layouts.app')
+
+@section('content')
+
+{{-- 
+==============================================
+ ALTERNATIVA PERSONALIZADA — FORMULARIO REGISTRO
+==============================================
+
+
+<div class="container d-flex justify-content-center" style="margin-top: 60px; margin-bottom: 40px;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0 rounded-4">
+
+            <!-- Header -->
+            <div class="card-header bg-success text-white text-center py-3 rounded-top">
+                <h4 class="mb-0">Crear Cuenta</h4>
+            </div>
+
+            <div class="card-body p-4">
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    {{-- Nombre 
+                    <div class="mb-3">
+                        <label for="name" class="form-label fw-semibold">Nombre Completo</label>
+                        <input id="name" type="text"
+                               class="form-control form-control-lg @error('name') is-invalid @enderror"
+                               name="name"
+                               value="{{ old('name') }}"
+                               required autofocus
+                               placeholder="Tu nombre completo">
+
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Email 
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">Correo Electrónico</label>
+                        <input id="email" type="email"
+                               class="form-control form-control-lg @error('email') is-invalid @enderror"
+                               name="email"
+                               value="{{ old('email') }}"
+                               required placeholder="correo@ejemplo.com">
+
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Contraseña 
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-semibold">Contraseña</label>
+                        <input id="password" type="password"
+                               class="form-control form-control-lg @error('password') is-invalid @enderror"
+                               name="password"
+                               required placeholder="Mínimo 8 caracteres">
+
+                        @error('password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Confirmar contraseña 
+                    <div class="mb-3">
+                        <label for="password-confirm" class="form-label fw-semibold">Confirmar Contraseña</label>
+                        <input id="password-confirm" type="password"
+                               class="form-control form-control-lg"
+                               name="password_confirmation"
+                               required>
+                    </div>
+
+                    {{-- Rol (excluyendo admin) 
+                    <div class="mb-3">
+                        <label for="role_id" class="form-label fw-semibold">Rol del Usuario</label>
+                        <select name="role_id" id="role_id"
+                                class="form-select form-select-lg" required>
+                            <option value="">Seleccione un rol</option>
+
+                            @foreach($roles as $role)
+                                @if($role->name !== 'admin')
+                                    <option value="{{ $role->id }}">
+                                        {{ ucfirst($role->name) }}
+                                    </option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+
+                    {{-- Botón de registro 
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            Crear Cuenta
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@endsection
+--}}
